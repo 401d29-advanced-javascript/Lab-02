@@ -24,4 +24,16 @@ List.prototype.pop = function() {
   return returnValue;
 };
 
+List.prototype.unshift = function(...item) {
+  let origLength = this.length;
+  let newLength = this.length + item.length;
+  for( i = origLength - 1; i >= 0; i--) {
+    this.data[newLength - 1] = this.data[origLength - 1];
+  }
+  for( i = 0; i < item.length; i++) {
+    this.data[i] = item[i];
+  }
+  return newLength;
+};
+
 module.exports = List;
